@@ -1,0 +1,79 @@
+name: Matrix Scroll Verify
+description: Verify a signed Matrix Scroll manifest in CI using matrixscroll verify exit codes.
+branding:
+  icon: shield
+  color: green
+
+inputs:
+  manifest:
+    description: Path to signed manifest JSON file
+    required: true
+  python-version:
+    description: Python version for installing matrixscroll
+    required: false
+    default: "3.12"
+  matrixscroll-version:
+    description: matrixscroll package version pin (latest if empty)
+    required: false
+    default: ""
+  require-mode:
+    description: Optional policy require-mode (v0.2.1+)
+    required: false
+    default: ""
+  trusted-keys:
+    description: Optional path to trusted public keys JSON (v0.2.1+)
+    required: false
+    default: ""
+
+outputs:
+  ok:
+    description: Whether verification passed
+    value: ${{ steps.verify.outputs.ok }}
+  device_id:
+    description: Signer device id from manifest
+    value: ${{ steps.verify.outputs.device_id }}
+  mode:
+    description: Provider mode from manifest signature block
+    value: ${{ steps.verify.outputs.mode }}
+
+runs:
+  using: composite
+  steps:
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ inputs.python-version }}
+
+    - name: Install matrixscroll
+      shell: bash
+      run: |
+        set -euo pipefail
+        if [ -n "${{ inputs.matrixscroll-version }}" ]; then
+          pip install "matrixscroll==${{ inputs.matrixscroll-version }}"
+        else
+          pip install matrixscroll
+        fi
+
+    - name: Verify manifest
+      id: verify
+      shell: bash
+      run: |
+        set -euo pipefail
+        MANIFEST="${{ inputs.manifest }}"
+        ARGS=(verify "$MANIFEST")
+        if [ -n "${{ inputs.require-mode }}" ]; then
+          echo "note: require-mode flag pending v0.2.1 CLI support" >&2
+        fi
+        if [ -n "${{ inputs.trusted-keys }}" ]; then
+          echo "note: trusted-keys flag pending v0.2.1 CLI support" >&2
+        fi
+        OUTPUT="$(matrixscroll "${ARGS[@]}" 2>&1)" || RC=$?
+        RC="${RC:-0}"
+        echo "$OUTPUT"
+        OK="$(python -c 'import json,sys; print(json.loads(sys.stdin.read()).get("ok", False))' <<< "$OUTPUT")"
+        DEVICE_ID="$(python -c 'import json,sys; print(json.loads(sys.stdin.read()).get("device_id") or "")' <<< "$OUTPUT")"
+        MODE="$(python -c 'import json,sys; print(json.loads(sys.stdin.read()).get("mode") or "")' <<< "$OUTPUT")"
+        echo "ok=$OK" >> "$GITHUB_OUTPUT"
+        echo "device_id=$DEVICE_ID" >> "$GITHUB_OUTPUT"
+        echo "mode=$MODE" >> "$GITHUB_OUTPUT"
+        exit "$RC"
