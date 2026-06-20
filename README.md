@@ -2,13 +2,15 @@
 
 GitHub Action for verifying signed Matrix Scroll manifests or PR commit envelope ranges in CI.
 
+**Pin SDK:** `matrixscroll-version: "0.2.5"` (recommended). Empty default installs latest PyPI.
+
 ## Single manifest
 
 ```yaml
 - uses: SSX360/matrixscroll-verify-action@v1
   with:
     manifest: release.signed.json
-    matrixscroll-version: "0.2.3"
+    matrixscroll-version: "0.2.5"
 ```
 
 ## PR commit range (Scroll Gate)
@@ -34,7 +36,7 @@ Workflow:
     source: notes
     notes-ref: refs/notes/matrixscroll
     fetch-notes: "true"
-    matrixscroll-version: "0.2.4"
+    matrixscroll-version: "0.2.5"
     summary-output: provenance-summary.json
     verify-agent-scope: "true"
 ```
@@ -67,4 +69,11 @@ Optional policy enforcement:
 | 1 | Configuration error |
 | 2 | Verification failed |
 
-See [matrixscroll](https://github.com/SSX360/matrixscroll) for the protocol and SDK.
+## Releases
+
+| Tag | Notes |
+|-----|-------|
+| `@v1` | Scroll Gate range mode, step summary, policy inputs |
+| `@v1.0.0` | Initial manifest-only verify |
+
+See [matrixscroll](https://github.com/SSX360/matrixscroll) for the protocol, SDK v0.2.5, and [`docs/SOFTWARE_PRODUCTS.md`](https://github.com/SSX360/matrixscroll/blob/main/docs/SOFTWARE_PRODUCTS.md).
