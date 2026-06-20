@@ -62,10 +62,10 @@ runs:
         MANIFEST="${{ inputs.manifest }}"
         ARGS=(verify "$MANIFEST")
         if [ -n "${{ inputs.require-mode }}" ]; then
-          echo "note: require-mode flag pending v0.2.1 CLI support" >&2
+          ARGS+=(--require-mode "${{ inputs.require-mode }}")
         fi
         if [ -n "${{ inputs.trusted-keys }}" ]; then
-          echo "note: trusted-keys flag pending v0.2.1 CLI support" >&2
+          ARGS+=(--trusted-keys "${{ inputs.trusted-keys }}")
         fi
         OUTPUT="$(matrixscroll "${ARGS[@]}" 2>&1)" || RC=$?
         RC="${RC:-0}"
