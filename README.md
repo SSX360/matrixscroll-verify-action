@@ -88,6 +88,17 @@ hardware-only verification path.
 - PyPI release provenance: <https://pypi.org/project/matrixscroll/0.2.6/>
 - SDK repo: <https://github.com/SSX360/matrixscroll>
 
+## Workflow guardrails
+
+- Keep public examples pinned to `SSX360/matrixscroll-verify-action@v1` and
+  `matrixscroll-version: "0.2.6"` until the next real SDK release is shipped.
+- Action contract and public-doc changes are maintainer-reviewed through
+  [`.github/CODEOWNERS`](./.github/CODEOWNERS), covering `README.md`,
+  `action.yml`, `.github/`, and `CHANGELOG.md`.
+- Treat this repository as the CI proof surface for the same offline verifier
+  contract used by the SDK and browser verifier; changes here should stay aligned
+  with the public site and SDK docs before release.
+
 ## Releases
 
 | Tag | Notes |
