@@ -3,6 +3,11 @@
 GitHub Action for verifying signed Matrix Scroll manifests or PR commit
 envelope ranges in CI.
 
+**Matrix Scroll is signed commit-time provenance for agent-assisted Git,
+verified offline, with hardware as an optional trust upgrade.**
+
+This repository is the public CI proof surface for the product.
+
 **Pin SDK:** `matrixscroll-version: "0.2.6"` (recommended). Empty default
 installs the latest PyPI release.
 
@@ -75,13 +80,17 @@ hardware-only verification path.
 | 1 | Configuration error |
 | 2 | Verification failed |
 
+## Proof links
+
+- Product site: <https://matrixscroll.com>
+- Browser verifier: <https://matrixscroll.com/verify/>
+- Compare page: <https://matrixscroll.com/compare/>
+- PyPI release provenance: <https://pypi.org/project/matrixscroll/0.2.6/>
+- SDK repo: <https://github.com/SSX360/matrixscroll>
+
 ## Releases
 
 | Tag | Notes |
 |-----|-------|
 | `@v1` | Scroll Gate range mode, step summary, policy inputs |
 | `@v1.0.0` | Initial manifest-only verify |
-
-See [matrixscroll](https://github.com/SSX360/matrixscroll) for the protocol,
-SDK v0.2.6, and
-[`docs/SOFTWARE_PRODUCTS.md`](https://github.com/SSX360/matrixscroll/blob/main/docs/SOFTWARE_PRODUCTS.md).
