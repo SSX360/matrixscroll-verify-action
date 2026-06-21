@@ -94,3 +94,7 @@ hardware-only verification path.
 |-----|-------|
 | `@v1` | Scroll Gate range mode, step summary, policy inputs |
 | `@v1.0.0` | Initial manifest-only verify |
+
+## License
+
+- Code: **Apache-2.0** (`LICENSE`).
