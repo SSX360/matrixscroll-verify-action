@@ -2,7 +2,7 @@
 
 ## v1.1.0 (2026-06-20)
 
-- Default `matrixscroll-version` pin **0.2.5** (gpgsig fix, SE050 mock, GUAC/Rekor CLI in SDK).
+- Default `matrixscroll-version` pin **0.2.6** (public trust-layer alignment release in the SDK).
 - README examples updated for Scroll Gate + policy flags.
 - `@v1` tag moved to include Scroll Gate range mode + GitHub Step Summary.
 
