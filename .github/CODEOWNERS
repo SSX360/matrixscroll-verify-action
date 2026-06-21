@@ -1,0 +1,5 @@
+# Action contract and public docs changes require maintainer review.
+/.github/ @SSX360
+/action.yml @SSX360
+/README.md @SSX360
+/CHANGELOG.md @SSX360
