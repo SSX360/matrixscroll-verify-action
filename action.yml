@@ -155,7 +155,7 @@ runs:
           if [ -n "${{ inputs.summary-output }}" ]; then
             echo "summary_path=${{ inputs.summary-output }}" >> "$GITHUB_OUTPUT"
           fi
-          MS_SUMMARY="$OUTPUT" python -c 'import json, os; summary = json.loads(os.environ["MS_SUMMARY"]); status = "passed" if summary.get("ok") else "failed"; lines = ["## Matrix Scroll provenance gate", "", f"**Status:** {status}", f"**Commits verified:** {summary.get(\"verified_count\", 0)} / {summary.get(\"total\", 0)}", f"**Agent commits:** {summary.get(\"agent_count\", 0)}", f"**Human commits:** {summary.get(\"human_count\", 0)}", f"**Modes:** {\", \".join(summary.get(\"modes\") or []) or \"none\"}"]; failures = ["- `%s`: %s" % (row.get("sha", "")[:8], row.get("error", "unknown")) for row in summary.get("results", []) if not row.get("ok")][:20]; lines += ["", "### Failures", ""] + failures if failures else []; print(chr(10).join(lines))' >> "$GITHUB_STEP_SUMMARY"
+          MS_SUMMARY="$OUTPUT" python -c 'import json, os; summary = json.loads(os.environ["MS_SUMMARY"]); status = "passed" if summary.get("ok") else "failed"; lines = ["## Matrix Scroll provenance gate", "", "**Status:** %s" % status, "**Commits verified:** %s / %s" % (summary.get("verified_count", 0), summary.get("total", 0)), "**Agent commits:** %s" % summary.get("agent_count", 0), "**Human commits:** %s" % summary.get("human_count", 0), "**Modes:** %s" % (", ".join(summary.get("modes") or []) or "none")]; failures = ["- `%s`: %s" % (row.get("sha", "")[:8], row.get("error", "unknown")) for row in summary.get("results", []) if not row.get("ok")][:20]; lines += ["", "### Failures", ""] + failures if failures else []; print(chr(10).join(lines))' >> "$GITHUB_STEP_SUMMARY"
           exit "$RC"
         fi
 
