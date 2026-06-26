@@ -136,3 +136,8 @@ existing scanners or build attestations.
 ## License
 
 - Code: **Apache-2.0** (`LICENSE`).
+
+---
+
+**Protocol:** https://matrixscroll.com · **Verify:** https://matrixscroll.com/verify/  
+**Control plane:** https://ssx360.com · **Pilot:** sales@ssx360.com
