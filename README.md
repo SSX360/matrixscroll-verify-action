@@ -8,6 +8,8 @@ verified offline, with hardware as an optional preview trust upgrade.**
 
 This repository is the public CI proof surface for the product.
 
+**Links:** [Verify offline](https://matrixscroll.com/verify/) · [SSX360 portal & provenance pilot](https://ssx360.com/) · [Book a pilot](mailto:sales@ssx360.com?subject=Provenance%20Pilot%20Inquiry)
+
 **Pin SDK:** `matrixscroll-version: "0.2.6"` (recommended). Empty default
 installs the latest PyPI release.
 
