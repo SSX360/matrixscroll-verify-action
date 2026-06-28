@@ -8,10 +8,10 @@ verified offline, with hardware as an optional preview trust upgrade.**
 
 This repository is the public CI proof surface for the product.
 
-**Links:** [Verify offline](https://matrixscroll.com/verify/) · [SSX360 portal & provenance pilot](https://ssx360.com/) · [Book a pilot](mailto:sales@ssx360.com?subject=Provenance%20Pilot%20Inquiry)
+**Links:** [Verify offline](https://matrixscroll.com/verify/) · [SSX360 control plane](https://ssx360.com/) · [Book a pilot](https://ssx360.com/contact?intent=pilot)
 
-**Pin SDK:** `matrixscroll-version: "0.2.6"` (recommended). Empty default
-installs the latest PyPI release.
+**Pin SDK:** `matrixscroll-version: "0.3.0"` (recommended). The action default
+installs **0.3.0** when the input is omitted.
 
 ## Single manifest
 
@@ -19,7 +19,7 @@ installs the latest PyPI release.
 - uses: SSX360/matrixscroll-verify-action@v1
   with:
     manifest: release.signed.json
-    matrixscroll-version: "0.2.6"
+    matrixscroll-version: "0.3.0"
 ```
 
 ## PR commit range (Scroll Gate)
@@ -45,7 +45,7 @@ Workflow:
     source: notes
     notes-ref: refs/notes/matrixscroll
     fetch-notes: "true"
-    matrixscroll-version: "0.2.6"
+    matrixscroll-version: "0.3.0"
     summary-output: provenance-summary.json
     verify-agent-scope: "true"
 ```
@@ -112,13 +112,13 @@ existing scanners or build attestations.
 - Product site: <https://matrixscroll.com>
 - Browser verifier: <https://matrixscroll.com/verify/>
 - Compare page: <https://matrixscroll.com/compare/>
-- PyPI release provenance: <https://pypi.org/project/matrixscroll/0.2.6/>
+- PyPI release: <https://pypi.org/project/matrixscroll/0.3.0/>
 - SDK repo: <https://github.com/SSX360/matrixscroll>
 
 ## Workflow guardrails
 
 - Keep public examples pinned to `SSX360/matrixscroll-verify-action@v1` and
-  `matrixscroll-version: "0.2.6"` until the next real SDK release is shipped.
+  `matrixscroll-version: "0.3.0"` for reproducible Scroll Gate runs.
 - Action contract and public-doc changes are maintainer-reviewed through
   [`.github/CODEOWNERS`](./.github/CODEOWNERS), covering `README.md`,
   `action.yml`, `.github/`, and `CHANGELOG.md`.
@@ -130,7 +130,9 @@ existing scanners or build attestations.
 
 | Tag | Notes |
 |-----|-------|
-| `@v1` | Scroll Gate range mode, step summary, policy inputs |
+| `@v1` | Scroll Gate range mode, step summary, policy inputs; default SDK **0.3.0** |
+| `@v1.1.1` | Default pin updated to matrixscroll **0.3.0** |
+| `@v1.1.0` | Default pin **0.2.6** |
 | `@v1.0.0` | Initial manifest-only verify |
 
 ## License
@@ -140,4 +142,4 @@ existing scanners or build attestations.
 ---
 
 **Protocol:** https://matrixscroll.com · **Verify:** https://matrixscroll.com/verify/  
-**Control plane:** https://ssx360.com · **Pilot:** sales@ssx360.com
+**Control plane:** https://ssx360.com · **Pilot:** https://ssx360.com/contact?intent=pilot
