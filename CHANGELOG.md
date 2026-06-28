@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.1.1 (2026-06-28)
+
+- Default `matrixscroll-version` pin **0.3.0** (aligned with the public SDK release).
+- README examples, PyPI link, and pilot CTA updated for 0.3.0.
+
 ## v1.1.0 (2026-06-20)
 
 - Default `matrixscroll-version` pin **0.2.6** (public trust-layer alignment release in the SDK).
