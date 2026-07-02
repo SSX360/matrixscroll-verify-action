@@ -10,8 +10,12 @@ This repository is the public CI proof surface for the product.
 
 **Links:** [Verify offline](https://ssx360.com/verify) · [SSX360 control plane](https://ssx360.com/) · [Book a provenance pilot](mailto:mission@ssx360.com?subject=Provenance%20Pilot%20Inquiry)
 
-**Pin SDK:** `matrixscroll-version: "0.5.1"` (recommended). Empty default
-installs the latest PyPI release.
+**Pin SDK:** `matrixscroll-version: "0.5.1"` (recommended). The action default
+installs **0.5.1** when the input is omitted.
+
+**Release line policy:** current line **0.5.x**; the previous minor release line
+remains supported for **90 days** after a new minor ships. Pin explicitly in
+workflows when you need reproducible Scroll Gate runs during that window.
 
 ## Single manifest
 
@@ -130,8 +134,10 @@ existing scanners or build attestations.
 
 | Tag | Notes |
 |-----|-------|
-| `@v1` | Scroll Gate range mode, step summary, policy inputs |
+| `@v1` | Scroll Gate range mode, step summary, policy inputs; default SDK **0.5.1** |
 | `@v1.0.0` | Initial manifest-only verify |
+
+**Release line policy:** current line **0.5.x**; previous minor supported **90 days**.
 
 ## License
 
