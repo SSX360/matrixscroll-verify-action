@@ -8,10 +8,14 @@ verified offline, with hardware as an optional preview trust upgrade.**
 
 This repository is the public CI proof surface for the product.
 
-**Links:** [Verify offline](https://matrixscroll.com/verify/) · [SSX360 control plane](https://ssx360.com/) · [Book a pilot](https://ssx360.com/contact?intent=pilot)
+**Links:** [Verify offline](https://ssx360.com/verify) · [SSX360 control plane](https://ssx360.com/) · [Book a provenance pilot](mailto:mission@ssx360.com?subject=Provenance%20Pilot%20Inquiry)
 
-**Pin SDK:** `matrixscroll-version: "0.3.0"` (recommended). The action default
-installs **0.3.0** when the input is omitted.
+**Pin SDK:** `matrixscroll-version: "0.5.1"` (recommended). The action default
+installs **0.5.1** when the input is omitted.
+
+**Release line policy:** current line **0.5.x**; the previous minor release line
+remains supported for **90 days** after a new minor ships. Pin explicitly in
+workflows when you need reproducible Scroll Gate runs during that window.
 
 ## Single manifest
 
@@ -19,7 +23,7 @@ installs **0.3.0** when the input is omitted.
 - uses: SSX360/matrixscroll-verify-action@v1
   with:
     manifest: release.signed.json
-    matrixscroll-version: "0.3.0"
+    matrixscroll-version: "0.5.1"
 ```
 
 ## PR commit range (Scroll Gate)
@@ -45,7 +49,7 @@ Workflow:
     source: notes
     notes-ref: refs/notes/matrixscroll
     fetch-notes: "true"
-    matrixscroll-version: "0.3.0"
+    matrixscroll-version: "0.5.1"
     summary-output: provenance-summary.json
     verify-agent-scope: "true"
 ```
@@ -109,16 +113,16 @@ existing scanners or build attestations.
 
 ## Proof links
 
-- Product site: <https://matrixscroll.com>
-- Browser verifier: <https://matrixscroll.com/verify/>
-- Compare page: <https://matrixscroll.com/compare/>
-- PyPI release: <https://pypi.org/project/matrixscroll/0.3.0/>
+- SSX360 docs: <https://ssx360.com/docs>
+- Browser verifier: <https://ssx360.com/verify>
+- Compare page: <https://ssx360.com/compare>
+- PyPI release provenance: <https://pypi.org/project/matrixscroll/0.5.1/>
 - SDK repo: <https://github.com/SSX360/matrixscroll>
 
 ## Workflow guardrails
 
 - Keep public examples pinned to `SSX360/matrixscroll-verify-action@v1` and
-  `matrixscroll-version: "0.3.0"` for reproducible Scroll Gate runs.
+  `matrixscroll-version: "0.5.1"` until the next real SDK release is shipped.
 - Action contract and public-doc changes are maintainer-reviewed through
   [`.github/CODEOWNERS`](./.github/CODEOWNERS), covering `README.md`,
   `action.yml`, `.github/`, and `CHANGELOG.md`.
@@ -130,10 +134,10 @@ existing scanners or build attestations.
 
 | Tag | Notes |
 |-----|-------|
-| `@v1` | Scroll Gate range mode, step summary, policy inputs; default SDK **0.3.0** |
-| `@v1.1.1` | Default pin updated to matrixscroll **0.3.0** |
-| `@v1.1.0` | Default pin **0.2.6** |
+| `@v1` | Scroll Gate range mode, step summary, policy inputs; default SDK **0.5.1** |
 | `@v1.0.0` | Initial manifest-only verify |
+
+**Release line policy:** current line **0.5.x**; previous minor supported **90 days**.
 
 ## License
 
@@ -141,5 +145,5 @@ existing scanners or build attestations.
 
 ---
 
-**Protocol:** https://matrixscroll.com · **Verify:** https://matrixscroll.com/verify/  
-**Control plane:** https://ssx360.com · **Pilot:** https://ssx360.com/contact?intent=pilot
+**Docs:** https://ssx360.com/docs · **Verify:** https://ssx360.com/verify  
+**Control plane:** https://ssx360.com · **Pilot:** mission@ssx360.com

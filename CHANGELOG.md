@@ -1,9 +1,9 @@
 # Changelog
 
-## v1.1.1 (2026-06-28)
+## v1.1.1 (2026-07-02)
 
-- Default `matrixscroll-version` pin **0.3.0** (aligned with the public SDK release).
-- README examples, PyPI link, and pilot CTA updated for 0.3.0.
+- Default `matrixscroll-version` pin **0.5.1** (ssx360 CLI + Scroll Gate alignment).
+- README and proof links point to ssx360.com/docs and ssx360.com/verify.
 
 ## v1.1.0 (2026-06-20)
 
