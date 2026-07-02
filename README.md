@@ -139,6 +139,8 @@ existing scanners or build attestations.
 
 **Release line policy:** current line **0.5.x**; previous minor supported **90 days**.
 
+**Honest limits:** emulated Ed25519 signing ships today; hardware signing is preview until firmware validation passes. Compliance language is evidence mapping, not certification. Illustrative profiles are not customer endorsements.
+
 ## License
 
 - Code: **Apache-2.0** (`LICENSE`).
