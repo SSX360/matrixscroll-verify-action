@@ -8,9 +8,9 @@ verified offline, with hardware as an optional preview trust upgrade.**
 
 This repository is the public CI proof surface for the product.
 
-**Links:** [Verify offline](https://matrixscroll.com/verify/) · [SSX360 portal & provenance pilot](https://ssx360.com/) · [Book a pilot](mailto:sales@ssx360.com?subject=Provenance%20Pilot%20Inquiry)
+**Links:** [Verify offline](https://ssx360.com/verify) · [SSX360 control plane](https://ssx360.com/) · [Book a provenance pilot](mailto:mission@ssx360.com?subject=Provenance%20Pilot%20Inquiry)
 
-**Pin SDK:** `matrixscroll-version: "0.2.6"` (recommended). Empty default
+**Pin SDK:** `matrixscroll-version: "0.5.1"` (recommended). Empty default
 installs the latest PyPI release.
 
 ## Single manifest
@@ -19,7 +19,7 @@ installs the latest PyPI release.
 - uses: SSX360/matrixscroll-verify-action@v1
   with:
     manifest: release.signed.json
-    matrixscroll-version: "0.2.6"
+    matrixscroll-version: "0.5.1"
 ```
 
 ## PR commit range (Scroll Gate)
@@ -45,7 +45,7 @@ Workflow:
     source: notes
     notes-ref: refs/notes/matrixscroll
     fetch-notes: "true"
-    matrixscroll-version: "0.2.6"
+    matrixscroll-version: "0.5.1"
     summary-output: provenance-summary.json
     verify-agent-scope: "true"
 ```
@@ -109,16 +109,16 @@ existing scanners or build attestations.
 
 ## Proof links
 
-- Product site: <https://matrixscroll.com>
-- Browser verifier: <https://matrixscroll.com/verify/>
-- Compare page: <https://matrixscroll.com/compare/>
-- PyPI release provenance: <https://pypi.org/project/matrixscroll/0.2.6/>
+- SSX360 docs: <https://ssx360.com/docs>
+- Browser verifier: <https://ssx360.com/verify>
+- Compare page: <https://ssx360.com/compare>
+- PyPI release provenance: <https://pypi.org/project/matrixscroll/0.5.1/>
 - SDK repo: <https://github.com/SSX360/matrixscroll>
 
 ## Workflow guardrails
 
 - Keep public examples pinned to `SSX360/matrixscroll-verify-action@v1` and
-  `matrixscroll-version: "0.2.6"` until the next real SDK release is shipped.
+  `matrixscroll-version: "0.5.1"` until the next real SDK release is shipped.
 - Action contract and public-doc changes are maintainer-reviewed through
   [`.github/CODEOWNERS`](./.github/CODEOWNERS), covering `README.md`,
   `action.yml`, `.github/`, and `CHANGELOG.md`.
@@ -139,5 +139,5 @@ existing scanners or build attestations.
 
 ---
 
-**Protocol:** https://matrixscroll.com · **Verify:** https://matrixscroll.com/verify/  
-**Control plane:** https://ssx360.com · **Pilot:** sales@ssx360.com
+**Docs:** https://ssx360.com/docs · **Verify:** https://ssx360.com/verify  
+**Control plane:** https://ssx360.com · **Pilot:** mission@ssx360.com
